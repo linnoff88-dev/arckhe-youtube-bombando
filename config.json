@@ -1,0 +1,71 @@
+{
+  "nichos": [
+    {
+      "nome": "inteligência artificial",
+      "busca": "inteligência artificial",
+      "ativo": true
+    },
+    {
+      "nome": "n8n automação",
+      "busca": "n8n automação",
+      "ativo": true
+    },
+    {
+      "nome": "claude code",
+      "busca": "claude code",
+      "ativo": true
+    },
+    {
+      "nome": "agentes de ia",
+      "busca": "agentes de ia",
+      "ativo": true
+    },
+    {
+      "nome": "vibe coding",
+      "busca": "vibe coding",
+      "ativo": true
+    },
+    {
+      "nome": "ganhar dinheiro com ia",
+      "busca": "ganhar dinheiro com ia",
+      "ativo": true
+    },
+    {
+      "nome": "chatgpt",
+      "busca": "chatgpt",
+      "ativo": true
+    }
+  ],
+  "por_nicho_busca": 40,
+  "dias_acompanhar": 7,
+  "max_detalhes_por_rodada": 250,
+  "pausa_s": 1.5,
+  "idioma": "pt",
+  "regiao": "BR",
+  "max_canais_por_rodada": 200,
+  "pessoas": [
+    "Sam Altman",
+    "Elon Musk",
+    "Jensen Huang",
+    "Dario Amodei",
+    "Demis Hassabis",
+    "Andrej Karpathy",
+    "Mark Zuckerberg",
+    "Satya Nadella",
+    "Sundar Pichai",
+    "Ilya Sutskever",
+    "Yann LeCun",
+    "Geoffrey Hinton",
+    "Fei-Fei Li",
+    "Andrew Ng",
+    "Lex Fridman",
+    "Joe Rogan",
+    "Bill Gates",
+    "Steve Jobs",
+    "Trump",
+    "Lula",
+    "Primo Rico",
+    "Thiago Nigro",
+    "Flow Podcast"
+  ]
+}
