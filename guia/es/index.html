@@ -8,9 +8,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Radar de lo que explota — descubre cada mañana qué está explotando en YouTube en tu tema</title>
 <meta name="description" content="Proyecto gratis (youtube-bombando): cada mañana busca los videos de la semana en tus temas, muestra lo que está creciendo más rápido, un gráfico de crecimiento de cada video y si explotó por el contenido, por el canal o por el invitado. Python, sin clave.">
-<link rel="alternate" hreflang="pt-BR" href="https://inematds.github.io/youtube-bombando/guia/">
-<link rel="alternate" hreflang="en" href="https://inematds.github.io/youtube-bombando/guia/en/">
-<link rel="alternate" hreflang="es" href="https://inematds.github.io/youtube-bombando/guia/es/">
+<link rel="alternate" hreflang="pt-BR" href="https://linnoff88-dev.github.io/arckhe-/guia/">
+<link rel="alternate" hreflang="en" href="https://linnoff88-dev.github.io/arckhe-/guia/en/">
+<link rel="alternate" hreflang="es" href="https://linnoff88-dev.github.io/arckhe-/guia/es/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -42,8 +42,8 @@
   nav .brand{display:flex;align-items:center;gap:8px;font-family:Sora;font-weight:800;letter-spacing:-.02em;color:var(--amb)}
   nav .brand .emoji{font-size:1.25rem}
   nav .sep{color:var(--mut);opacity:.45}
-  nav .inema{color:var(--sky);font-weight:600;font-size:.88rem;font-family:Sora}
-  nav .inema:hover{filter:brightness(1.15)}
+  nav .ARCKHÉ{color:var(--sky);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .ARCKHÉ:hover{filter:brightness(1.15)}
   nav .pro{color:var(--pro);font-weight:600;font-size:.88rem;font-family:Sora}
   nav .pro:hover{filter:brightness(1.15)}
   nav .clubpro{display:inline-flex;align-items:center;gap:6px}
@@ -247,9 +247,9 @@
   <a class="brand" href="#top"><span class="emoji">📡</span> Radar de lo que explota</a>
   <span class="sep">|</span>
   <span class="clubpro">
-    <a class="inema" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
+    <a class="ARCKHÉ" href="https://ARCKHÉ AI" target="_blank" rel="noopener">ARCKHÉ AI</a>
     <span class="sep">-</span>
-    <a class="pro" href="https://inema.pro" target="_blank" rel="noopener">PRO</a>
+    <a class="pro" href="https://ARCKHÉ.pro" target="_blank" rel="noopener">PRO</a>
   </span>
   <div class="links">
     <a class="sec" href="#painel">El panel</a>
@@ -259,7 +259,7 @@
     <a class="sec" href="#tecnico">Kit (técnico)</a>
     <span class="lang"><a href="../">PT</a><a href="../en/">EN</a><a class="on" href="./">ES</a></span>
     <button class="tgl" id="themeToggle" aria-label="Cambiar tema" title="Cambiar tema">🌙</button>
-    <a class="btn" href="https://github.com/inematds/youtube-bombando" target="_blank" rel="noopener">GitHub</a>
+    <a class="btn" href="https://github.com/linnoff88-dev/youtube-bombando" target="_blank" rel="noopener">GitHub</a>
   </div>
 </div></nav>
 
@@ -272,7 +272,7 @@
       <p class="lead">Grabas, te esmeras, y el video no se mueve. Mientras tanto, un canal pequeño del mismo tema hace cientos de veces lo normal para él. El <strong>radar de lo que explota</strong> te muestra, antes de grabar, qué está creciendo y si creció por el tema (puedes aprovechar la idea) o solo porque el canal es grande (no sirve).</p>
       <div class="cta">
         <a class="btn" href="#painel">Ver cómo es el panel</a>
-        <a class="btn ghost" href="https://github.com/inematds/youtube-bombando" target="_blank" rel="noopener">Ver en GitHub</a>
+        <a class="btn ghost" href="https://github.com/linnoff88-dev/youtube-bombando" target="_blank" rel="noopener">Ver en GitHub</a>
       </div>
     </div>
     <figure><img src="../assets/banner-es.jpg" alt="Radar de lo que explota — descubre cada mañana qué está explotando en YouTube en tu tema, y por qué"></figure>
@@ -362,7 +362,7 @@
   <div class="grid g3">
     <div class="card"><h3>🔎 Recolección</h3><p>Usa <code>yt-dlp</code> (herramienta abierta y gratis) para buscar los videos de la semana de cada tema y leer las vistas, como lo haría un navegador. Pausa entre llamadas y tope por ronda.</p></div>
     <div class="card"><h3>📈 Métricas</h3><p>Una foto por video por día en una base SQLite local: velocidad, ganancia en 24 h, multiplicador, × canal y la nota. Todo explicado en el README.</p></div>
-    <div class="card"><h3>🖥️ Panel</h3><p>Un único <code>index.html</code> que se abre en cualquier navegador, servido en el puerto 8795. También puede aparecer dentro de otro panel (INEMA lo muestra en una tarjeta “Tendencias de red”).</p></div>
+    <div class="card"><h3>🖥️ Panel</h3><p>Un único <code>index.html</code> que se abre en cualquier navegador, servido en el puerto 8795. También puede aparecer dentro de otro panel (ARCKHÉ lo muestra en una tarjeta “Tendencias de red”).</p></div>
   </div>
 </div></section>
 
@@ -392,8 +392,8 @@
 <span class="c"># otros sistemas</span>
 <span class="k">python3 -m pip install -U yt-dlp</span>
 <span class="k">yt-dlp --version</span></pre></div>
-    <div class="card"><h3>📦 El proyecto</h3><p>Sin git: <a href="https://github.com/inematds/youtube-bombando/archive/refs/heads/main.zip">descarga el ZIP</a>.</p><pre><span class="c"># ¿sin git? sudo apt install git</span>
-<span class="k">git clone https://github.com/inematds/youtube-bombando</span>
+    <div class="card"><h3>📦 El proyecto</h3><p>Sin git: <a href="https://github.com/linnoff88-dev/youtube-bombando/archive/refs/heads/main.zip">descarga el ZIP</a>.</p><pre><span class="c"># ¿sin git? sudo apt install git</span>
+<span class="k">git clone https://github.com/linnoff88-dev/youtube-bombando</span>
 <span class="k">cd youtube-bombando</span>
 <span class="c"># ¿descargaste el ZIP? la carpeta es youtube-bombando-main</span></pre></div>
   </div>
@@ -465,8 +465,8 @@
   <div class="wrap">
     <div class="pill">Python 3</div><div class="pill">yt-dlp</div><div class="pill">SQLite</div><div class="pill">sin clave</div>
     <p style="margin-top:18px">Radar de lo que explota · proyecto youtube-bombando ·
-      <a href="https://github.com/inematds/youtube-bombando">inematds/youtube-bombando</a> ·
-      <a href="https://inema.club">INEMA.CLUB</a></p>
+      <a href="https://github.com/linnoff88-dev/youtube-bombando">linnoff88-dev/youtube-bombando</a> ·
+      <a href="https://ARCKHÉ AI">ARCKHÉ AI</a></p>
   </div>
 </footer>
 

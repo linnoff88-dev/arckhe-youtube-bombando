@@ -2,7 +2,7 @@
 
 **🇧🇷 [Português](README.md) · 🇺🇸 [English](README.en.md) · 🇪🇸 [Español](README.es.md)**
 
-[![The trending radar](guia/assets/banner-en.jpg)](https://inematds.github.io/youtube-bombando/guia/en/)
+[![The trending radar](guia/assets/banner-en.jpg)](https://linnoff88-dev.github.io/arckhe-/guia/en/)
 
 ## What it is
 
@@ -10,7 +10,7 @@
 
 ## 📖 User guide
 
-Full guide (landing + step by step): **https://inematds.github.io/youtube-bombando/guia/en/**
+Full guide (landing + step by step): **https://linnoff88-dev.github.io/arckhe-/guia/en/**
 
 ## Requirements
 

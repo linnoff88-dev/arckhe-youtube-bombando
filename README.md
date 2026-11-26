@@ -8,7 +8,7 @@
 
 **ê°Å¸â¡Â§ê°Å¸â¡Â· [PortuguêÂªs](README.md) êÂ· ê°Å¸â¡Âºê°Å¸â¡Â¸ [English](README.en.md) êÂ· ê°Å¸â¡Âªê°Å¸â¡Â¸ [EspaêÂ±ol](README.es.md)**
 
-[![Radar do que bomba](guia/assets/banner.jpg)](https://inematds.github.io/youtube-bombando/guia/)
+[![Radar do que bomba](guia/assets/banner.jpg)](https://linnoff88-dev.github.io/arckhe-/guia/)
 
 ## O que êÂ©
 
@@ -16,7 +16,7 @@ O **youtube-bombando** êÂ© um pequeno sistema que roda sozinho no seu compu
 
 ## ê°Å¸ââ Guia de uso
 
-Guia completo (landing + passo a passo): **https://inematds.github.io/youtube-bombando/guia/**
+Guia completo (landing + passo a passo): **https://linnoff88-dev.github.io/arckhe-/guia/**
 
 ## Requisitos
 

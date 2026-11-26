@@ -36,7 +36,7 @@ Para cada vídeo com views:
   - a frase de conclusêo do nicho;
   - lista "Furaram a bolha" (top 5) com miniatura, título, canal, fator_canal e porte.
 - Na tabela/cartões de vídeos: coluna/etiqueta "Por quê" (chip colorido da categoria + motivo no `title`/texto pequeno) e coluna "× canal" (fator_canal). Ordenaçêo nova "× canal".
-- Cores das categorias: só tons discretos sobre o escuro; o amarelo `#FACC15` fica para **Conteúdo** (o destaque). Manter o resto do design INEMA já existente.
+- Cores das categorias: só tons discretos sobre o escuro; o amarelo `#FACC15` fica para **Conteúdo** (o destaque). Manter o resto do design ARCKHÉ já existente.
 
 ## 5. Testes e versêo
 - Fixtures novos de canal em `tests/fixtures/` + testes: mediana exclui o próprio vídeo; cada regra de classificaçêo com números conhecidos; detecçêo de pessoa e de formato convidado; "Sem dados" quando falta canal; painel contém a seçêo "Por que bombou?".
