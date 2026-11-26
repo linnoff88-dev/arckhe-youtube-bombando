@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Entrada CLI e orquestração, com lock durante toda a rodada."""
+"""Entrada CLI e orquestraçêo, com lock durante toda a rodada."""
 import shutil
 import argparse
 import fcntl
@@ -31,13 +31,13 @@ def configurar(raiz):
         if type(valor) is not int or valor < 1:
             raise ValueError(f'{chave} deve ser inteiro positivo')
     if not isinstance(config['pausa_s'], (int, float)) or not math.isfinite(config['pausa_s']) or config['pausa_s'] < 0:
-        raise ValueError('pausa_s deve ser um número finito não negativo')
+        raise ValueError('pausa_s deve ser um número finito nêo negativo')
     for nicho in config['nichos']:
         if not nicho.get('nome') or not nicho.get('busca') or type(nicho.get('ativo')) is not bool:
             raise ValueError('nicho precisa de nome, busca e ativo booleano')
     if 'pessoas' in config and (not isinstance(config['pessoas'], list) or
             any(not isinstance(p, str) or not p.strip() for p in config['pessoas'])):
-        raise ValueError('pessoas deve ser uma lista de nomes não vazios')
+        raise ValueError('pessoas deve ser uma lista de nomes nêo vazios')
     return config
 
 
@@ -51,7 +51,7 @@ def executar(args, raiz=RAIZ):
         try:
             fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         except BlockingIOError:
-            print('rodada já em execução; ignorada')
+            print('rodada já em execuçêo; ignorada')
             return 0
         logger = logging.getLogger('bombando')
         logger.setLevel(logging.INFO)
@@ -63,7 +63,7 @@ def executar(args, raiz=RAIZ):
             config = configurar(raiz)
             nichos = [n for n in config['nichos'] if n['ativo'] and (not args.nicho or args.nicho == n['nome'])]
             if not nichos and not args.so_painel and not so_canais:
-                raise ValueError('nenhum nicho ativo corresponde à seleção')
+                raise ValueError('nenhum nicho ativo corresponde à seleçêo')
             db = abrir(dados / 'bombando.db')
             erros = []
             def registrar(mensagem):

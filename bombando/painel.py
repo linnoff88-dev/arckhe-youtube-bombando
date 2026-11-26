@@ -39,7 +39,7 @@ def curto(n):
 
 
 def pontos_crescimento(fotos, idade_h, agora):
-    """(horas desde a publicação, views, rótulo). Começa em (0, 0) quando a idade é conhecida;
+    """(horas desde a publicaçêo, views, rótulo). Começa em (0, 0) quando a idade é conhecida;
     cada foto diária fica na hora em que foi tirada (idade de hoje menos os dias de diferença)."""
     pontos = [(0.0, 0, 'publicado')] if idade_h is not None else []
     hoje = agora.date()
@@ -56,7 +56,7 @@ def pontos_crescimento(fotos, idade_h, agora):
 
 
 def crescimento(fotos, idade_h, agora, grande=False):
-    """Gráfico SVG de views × horas desde a publicação (mini na tabela, grande no destaque)."""
+    """Gráfico SVG de views × horas desde a publicaçêo (mini na tabela, grande no destaque)."""
     pontos = pontos_crescimento(fotos, idade_h, agora)
     if len(pontos) < 2:
         return '<span class="muted">Sem histórico</span>'
@@ -74,7 +74,7 @@ def crescimento(fotos, idade_h, agora, grande=False):
                           f'<text x="{esq - 8}" y="{y + 4:.1f}" text-anchor="end">{curto(ymax * frac)}</text>')
         partes.append(f'<text x="{esq}" y="{h - 8}">0 h (publicado)</text>'
                       f'<text x="{w - dir_}" y="{h - 8}" text-anchor="end">{xmax:.0f} h</text>')
-    # Do lançamento até a 1ª medição não há dado: linha tracejada (média). Depois, medições reais.
+    # Do lançamento até a 1ª mediçêo nêo há dado: linha tracejada (média). Depois, medições reais.
     inicio = 1 if pontos[0][2] == 'publicado' else 0
     if inicio:
         (x0, y0), (x1, y1) = xy[0], xy[1]
@@ -125,7 +125,7 @@ const classe=c=>'categoria-'+categorias.indexOf(c);
 const idade=h=>h==null?'—':h<48?Math.round(h)+' h':Math.floor(h/24)+' d '+Math.floor(h%24)+' h';
 const ORDENS=JSON.parse(document.getElementById('ordens').textContent);
 function explicar(){const k=document.getElementById('ordem').value;document.getElementById('explica').innerHTML='<b>'+esc(ORDENS[k][0])+':</b> '+esc(ORDENS[k][1]);}
-function abrir(id){const v=data.videos.find(v=>v.id===id);const d=document.getElementById('janela');document.getElementById('janela-corpo').innerHTML=`<h3>${esc(v.titulo)}</h3><p class="muted">${esc(v.canal||'')} · idade ${idade(v.idade_h)} · ${fmt(v.views)} views · ${fmt(v.velocidade)} views/h</p>${v.grafico}<p class="muted"><small>Tracejado: da publicação até a 1ª medição (só a média, sem pontos no meio). Linha cheia: medições diárias às 07:15.</small></p>`;d.showModal();}
+function abrir(id){const v=data.videos.find(v=>v.id===id);const d=document.getElementById('janela');document.getElementById('janela-corpo').innerHTML=`<h3>${esc(v.titulo)}</h3><p class="muted">${esc(v.canal||'')} · idade ${idade(v.idade_h)} · ${fmt(v.views)} views · ${fmt(v.velocidade)} views/h</p>${v.grafico}<p class="muted"><small>Tracejado: da publicaçêo até a 1ª mediçêo (só a média, sem pontos no meio). Linha cheia: medições diárias às 07:15.</small></p>`;d.showModal();}
 function porque(){
  const resumo=nicho?data.porque.nichos[nicho]:data.porque.geral;
  document.getElementById('conclusao').textContent=resumo.conclusao;
@@ -134,7 +134,7 @@ function porque(){
  document.getElementById('bolha').innerHTML=resumo.furaram_bolha.map(id=>{
   const v=data.videos.find(v=>v.id===id);
   return `<li>${images?`<img class="thumb" alt="" loading="lazy" src="https://i.ytimg.com/vi/${encodeURIComponent(v.id)}/mqdefault.jpg">`:''}<a href="https://www.youtube.com/watch?v=${encodeURIComponent(v.id)}" target="_blank" rel="noopener noreferrer">${esc(v.titulo)}</a><br><small>${esc(v.canal)} · ${fmt(v.fator_canal)}× o canal · porte ${esc(v.porte)}</small></li>`;
- }).join('')||'<li class="muted">Nenhum canal pequeno ou médio com vídeo com pelo menos 3× o normal nesta seleção.</li>';
+ }).join('')||'<li class="muted">Nenhum canal pequeno ou médio com vídeo com pelo menos 3× o normal nesta seleçêo.</li>';
 }
 function render(){
  const key=document.getElementById('ordem').value;
@@ -144,12 +144,12 @@ function render(){
    return val(b)-val(a);
  });
  explicar();
- document.getElementById('lista').innerHTML=list.map(v=>`<tr><td>${images?`<img class="thumb" alt="" loading="lazy" src="https://i.ytimg.com/vi/${encodeURIComponent(v.id)}/mqdefault.jpg">`:''}<a class="title" href="https://www.youtube.com/watch?v=${encodeURIComponent(v.id)}" target="_blank" rel="noopener noreferrer">${esc(v.titulo)}</a><br><small>${esc(v.canal||'Canal não informado')}${v.indisponivel?' · Indisponível':''}</small></td><td data-label="Idade">${idade(v.idade_h)}</td><td data-label="Views">${fmt(v.views)}</td><td data-label="Views/h">${fmt(v.velocidade)}</td><td data-label="Ganho 24h">${fmt(v.ganho_24h)}</td><td data-label="Multiplicador">${fmt(v.multiplicador)}×</td><td data-label="× canal">${v.fator_canal==null?"—":fmt(v.fator_canal)+"×"}</td><td data-label="Por quê"><span class="chip ${classe(v.categoria)}" title="${esc(v.motivo)}">${esc(v.categoria)}</span><small class="motivo">${esc(v.motivo)}${v.trecho_convidado?` · trecho: “${esc(v.trecho_convidado)}”`:v.trecho_pessoa?` · trecho: “${esc(v.trecho_pessoa)}”`:""}</small></td><td data-label="Nota">${fmt(score(v))}</td><td data-label="Crescimento"><button class="vergrafico" data-grafico="${esc(v.id)}" title="Abrir o gráfico de crescimento">${v.sparkline}<small>ver gráfico</small></button></td></tr>`).join('');
+ document.getElementById('lista').innerHTML=list.map(v=>`<tr><td>${images?`<img class="thumb" alt="" loading="lazy" src="https://i.ytimg.com/vi/${encodeURIComponent(v.id)}/mqdefault.jpg">`:''}<a class="title" href="https://www.youtube.com/watch?v=${encodeURIComponent(v.id)}" target="_blank" rel="noopener noreferrer">${esc(v.titulo)}</a><br><small>${esc(v.canal||'Canal nêo informado')}${v.indisponivel?' · Indisponível':''}</small></td><td data-label="Idade">${idade(v.idade_h)}</td><td data-label="Views">${fmt(v.views)}</td><td data-label="Views/h">${fmt(v.velocidade)}</td><td data-label="Ganho 24h">${fmt(v.ganho_24h)}</td><td data-label="Multiplicador">${fmt(v.multiplicador)}×</td><td data-label="× canal">${v.fator_canal==null?"—":fmt(v.fator_canal)+"×"}</td><td data-label="Por quê"><span class="chip ${classe(v.categoria)}" title="${esc(v.motivo)}">${esc(v.categoria)}</span><small class="motivo">${esc(v.motivo)}${v.trecho_convidado?` · trecho: “${esc(v.trecho_convidado)}”`:v.trecho_pessoa?` · trecho: “${esc(v.trecho_pessoa)}”`:""}</small></td><td data-label="Nota">${fmt(score(v))}</td><td data-label="Crescimento"><button class="vergrafico" data-grafico="${esc(v.id)}" title="Abrir o gráfico de crescimento">${v.sparkline}<small>ver gráfico</small></button></td></tr>`).join('');
  document.getElementById('vazio').hidden=list.length>0;
  const terms=nicho?data.assuntos.nichos[nicho]||[]:data.assuntos.geral;
- document.getElementById('termos').innerHTML=terms.length?terms.map(t=>`<div class="term">${esc(t.termo)} <small>${fmt(t.peso)} views/h</small><div class="bar"><span style="width:${100*t.peso/terms[0].peso}%"></span></div></div>`).join(''):'<p class="muted">Ainda não há velocidade suficiente para destacar assuntos.</p>';
+ document.getElementById('termos').innerHTML=terms.length?terms.map(t=>`<div class="term">${esc(t.termo)} <small>${fmt(t.peso)} views/h</small><div class="bar"><span style="width:${100*t.peso/terms[0].peso}%"></span></div></div>`).join(''):'<p class="muted">Ainda nêo há velocidade suficiente para destacar assuntos.</p>';
  porque();
- document.getElementById('contagem').textContent=`${list.length} vídeos nesta seleção`;
+ document.getElementById('contagem').textContent=`${list.length} vídeos nesta seleçêo`;
 }
 document.querySelectorAll('[data-nicho]').forEach(b=>b.addEventListener('click',()=>{nicho=b.dataset.nicho;document.querySelectorAll('[data-nicho]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));render()}));
 document.getElementById('ordem').addEventListener('change',render);
@@ -162,8 +162,8 @@ render();
 
 ORDENS = {
     'nota': ('Nota', 'Mistura duas coisas: quanto o vídeo está mais rápido que os outros do mesmo nicho (z-score das views por hora) e quanto passou o tamanho do canal (log do multiplicador). Maior = mais quente agora.'),
-    'velocidade': ('Velocidade', 'Views por hora desde a publicação (views ÷ idade). Mostra quem cresce mais rápido; favorece os vídeos novos.'),
-    'ganho_24h': ('Ganho em 24h', 'Views ganhas desde a medição do dia anterior. Precisa de 2 dias de coleta; antes disso aparece —.'),
+    'velocidade': ('Velocidade', 'Views por hora desde a publicaçêo (views ÷ idade). Mostra quem cresce mais rápido; favorece os vídeos novos.'),
+    'ganho_24h': ('Ganho em 24h', 'Views ganhas desde a mediçêo do dia anterior. Precisa de 2 dias de coleta; antes disso aparece —.'),
     'multiplicador': ('Multiplicador', 'Views ÷ inscritos do canal. Acima de 1× o vídeo já alcançou mais gente que o canal tem de inscritos.'),
     'fator_canal': ('× canal', 'Views ÷ mediana dos últimos vídeos do próprio canal. 3× ou mais = o conteúdo furou a bolha do canal.'),
     'views': ('Views', 'Total de visualizações hoje, sem levar em conta idade nem tamanho do canal. Canais grandes tendem a dominar.'),
@@ -172,7 +172,7 @@ ORDENS = {
 
 
 def quente(nicho, v):
-    """Cartão do vídeo mais quente do nicho: thumb, números e gráfico de crescimento."""
+    """Cartêo do vídeo mais quente do nicho: thumb, números e gráfico de crescimento."""
     vid = html.escape(v['id'], quote=True)
     fator = f'{v["fator_canal"]:.1f}×'.replace('.', ',') if v.get('fator_canal') is not None else '—'
     numeros = [('Views', curto(v.get('views'))), ('Idade', idade_txt(v.get('idade_h'))),
@@ -183,9 +183,9 @@ def quente(nicho, v):
             f'<a href="https://www.youtube.com/watch?v={vid}" target="_blank" rel="noopener noreferrer">'
             f'<img class="thumb" alt="" src="https://i.ytimg.com/vi/{vid}/mqdefault.jpg"></a>'
             f'<a class="title" href="https://www.youtube.com/watch?v={vid}" target="_blank" rel="noopener noreferrer">{html.escape(v["titulo"])}</a>'
-            f'<br><small>{html.escape(v.get("canal") or "Canal não informado")}</small>'
+            f'<br><small>{html.escape(v.get("canal") or "Canal nêo informado")}</small>'
             f'<dl class="numeros">{lista}</dl>{v["grafico"]}'
-            f'<p class="legenda-g">Tracejado = da publicação até a 1ª medição · cheio = medições diárias</p></article>')
+            f'<p class="legenda-g">Tracejado = da publicaçêo até a 1ª mediçêo · cheio = medições diárias</p></article>')
 
 
 def gerar(dados, pasta, agora):
@@ -211,11 +211,11 @@ def gerar(dados, pasta, agora):
     erro_html = '<details><summary>Ocorrências da rodada</summary><ul>' + ''.join(f'<li>{html.escape(e)}</li>' for e in erros) + '</ul></details>' if erros else ''
     pagina = f'''<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>YouTube bombando</title><style>{CSS}</style></head>
 <body><main><header><h1>YouTube bombando</h1><p class="muted">Descubra os assuntos que ganham força nos seus nichos.</p><p>Última rodada: {html.escape(data_local(rodada.get('instante')))} · {len(dados['videos'])} vídeos acompanhados · <span class="status">{status}</span>{' · Dados de exemplo (fixtures)' if rodada.get('fixtures') else ''}</p>{erro_html}</header>
-<nav class="controls chips" aria-label="Filtrar por nicho">{chips}</nav><div class="controls"><label for="ordem">Ordenar por</label><select id="ordem"><option value="nota">Nota</option><option value="velocidade">Velocidade</option><option value="ganho_24h">Ganho em 24h</option><option value="multiplicador">Multiplicador</option><option value="fator_canal">× canal</option><option value="views">Views</option><option value="novos">Mais novos</option></select><button id="imagens" aria-pressed="true">Ocultar miniaturas</button></div><p id="explica" class="explica" aria-live="polite"></p><details class="opcoes"><summary>O que cada opção de ordenação quer dizer</summary><dl>{''.join(f'<dt>{html.escape(t)}</dt><dd>{html.escape(d)}</dd>' for t, d in ORDENS.values())}</dl><p class="muted"><small><b>Idade</b> = tempo desde que o vídeo foi publicado no YouTube (não desde que o sistema o achou).</small></p></details>
+<nav class="controls chips" aria-label="Filtrar por nicho">{chips}</nav><div class="controls"><label for="ordem">Ordenar por</label><select id="ordem"><option value="nota">Nota</option><option value="velocidade">Velocidade</option><option value="ganho_24h">Ganho em 24h</option><option value="multiplicador">Multiplicador</option><option value="fator_canal">× canal</option><option value="views">Views</option><option value="novos">Mais novos</option></select><button id="imagens" aria-pressed="true">Ocultar miniaturas</button></div><p id="explica" class="explica" aria-live="polite"></p><details class="opcoes"><summary>O que cada opçêo de ordenaçêo quer dizer</summary><dl>{''.join(f'<dt>{html.escape(t)}</dt><dd>{html.escape(d)}</dd>' for t, d in ORDENS.values())}</dl><p class="muted"><small><b>Idade</b> = tempo desde que o vídeo foi publicado no YouTube (nêo desde que o sistema o achou).</small></p></details>
 <section aria-labelledby="assuntos"><h2 id="assuntos">Assuntos em alta</h2><div class="terms" id="termos"></div></section>
-<section aria-labelledby="porque"><h2 id="porque">Por que bombou?</h2><p class="muted">Sinais de conteúdo, canal e convidado; são hipóteses, não prova de causa. Percentuais consideram vídeos disponíveis com views confirmadas.</p><div id="distribuicao" class="distribuicao" aria-label="Distribuição das views por categoria"></div><ul id="legenda" class="legenda"></ul><p id="conclusao" aria-live="polite"></p><h3>Furaram a bolha</h3><ol id="bolha" class="bolha"></ol></section>
-<section aria-labelledby="videos"><h2 id="videos">Vídeos em acompanhamento</h2><p id="contagem" class="muted" aria-live="polite"></p><table class="videos"><thead><tr><th scope="col">Vídeo / canal</th><th scope="col" title="Tempo desde que o vídeo foi publicado">Idade</th><th scope="col">Views</th><th scope="col">Views/h</th><th scope="col">Ganho 24h</th><th scope="col">Multiplicador</th><th scope="col">× canal</th><th scope="col">Por quê</th><th scope="col">Nota</th><th scope="col">Crescimento</th></tr></thead><tbody id="lista"></tbody></table><p id="vazio" class="empty" hidden>Nenhum vídeo nesta seleção.</p></section>
-<section><h2>Vídeo mais quente de cada nicho</h2><p class="muted">O de maior nota em cada nicho, com o gráfico de crescimento das views desde a publicação.</p><div class="hot">{''.join(quentes) or '<p class="muted">Aguardando fotos dos vídeos.</p>'}</div></section><footer>— indica dado ainda não disponível. Miniaturas vêm do YouTube (internet). Links abrem o YouTube.</footer><noscript>Ative JavaScript para filtrar e consultar a tabela. Os destaques acima continuam disponíveis.</noscript></main>
+<section aria-labelledby="porque"><h2 id="porque">Por que bombou?</h2><p class="muted">Sinais de conteúdo, canal e convidado; sêo hipóteses, nêo prova de causa. Percentuais consideram vídeos disponíveis com views confirmadas.</p><div id="distribuicao" class="distribuicao" aria-label="Distribuiçêo das views por categoria"></div><ul id="legenda" class="legenda"></ul><p id="conclusao" aria-live="polite"></p><h3>Furaram a bolha</h3><ol id="bolha" class="bolha"></ol></section>
+<section aria-labelledby="videos"><h2 id="videos">Vídeos em acompanhamento</h2><p id="contagem" class="muted" aria-live="polite"></p><table class="videos"><thead><tr><th scope="col">Vídeo / canal</th><th scope="col" title="Tempo desde que o vídeo foi publicado">Idade</th><th scope="col">Views</th><th scope="col">Views/h</th><th scope="col">Ganho 24h</th><th scope="col">Multiplicador</th><th scope="col">× canal</th><th scope="col">Por quê</th><th scope="col">Nota</th><th scope="col">Crescimento</th></tr></thead><tbody id="lista"></tbody></table><p id="vazio" class="empty" hidden>Nenhum vídeo nesta seleçêo.</p></section>
+<section><h2>Vídeo mais quente de cada nicho</h2><p class="muted">O de maior nota em cada nicho, com o gráfico de crescimento das views desde a publicaçêo.</p><div class="hot">{''.join(quentes) or '<p class="muted">Aguardando fotos dos vídeos.</p>'}</div></section><footer>— indica dado ainda nêo disponível. Miniaturas vêm do YouTube (internet). Links abrem o YouTube.</footer><noscript>Ative JavaScript para filtrar e consultar a tabela. Os destaques acima continuam disponíveis.</noscript></main>
 <dialog id="janela" aria-label="Gráfico de crescimento"><div id="janela-corpo"></div><button id="fechar">Fechar</button></dialog>
 <script id="ordens" type="application/json">{json.dumps(ORDENS, ensure_ascii=False).replace('<', '\\u003c')}</script><script id="dados" type="application/json">{seguro}</script><script>{JS}</script></body></html>'''
     for destino, conteudo in [(pasta / 'dados.json', serializado), (pasta / 'index.html', pagina),

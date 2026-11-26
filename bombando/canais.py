@@ -8,7 +8,7 @@ IDADE_MINIMA_DIAS = 3
 
 
 def linha_base(entradas, video_id, agora):
-    # Importação tardia evita ciclo com as métricas que consomem esta função.
+    # Importaçêo tardia evita ciclo com as métricas que consomem esta funçêo.
     from .metricas import numero
     valores = []
     vistos = set()

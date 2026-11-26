@@ -1,4 +1,4 @@
-"""Regressão offline do método, cache, migração e integração 1.1."""
+"""Regressêo offline do método, cache, migraçêo e integraçêo 1.1."""
 import json
 import sqlite3
 import subprocess
@@ -72,8 +72,8 @@ class MetodoTest(unittest.TestCase):
         self.assertEqual(detectar('Teste', pessoas=[])['pessoa'],None)
         self.assertEqual(detectar('Ana Souza fala', pessoas=['Ana Souza'])['pessoa'],'Ana Souza')
         self.assertIsNone(detectar('Lulatico e Trumpismo')['pessoa'])
-        self.assertFalse(detectar('Automação com agentes inteligentes')['formato_convidado'])
-        # Falsos positivos vistos na 1ª coleta real (12/11/2026): não são convidados.
+        self.assertFalse(detectar('Automaçêo com agentes inteligentes')['formato_convidado'])
+        # Falsos positivos vistos na 1ª coleta real (12/11/2026): nêo sêo convidados.
         for titulo in ['IA | Maria Silva', 'IA - MARIA SILVA', 'IA #123', 'Agentes com Graph Engineering',
                        'Guia com Inteligência Artificial']:
             with self.subTest(falso=titulo):
@@ -97,8 +97,8 @@ class MetodoTest(unittest.TestCase):
         self.assertEqual(sum(c['pct_views'] for c in resumo['categorias']),100)
         self.assertEqual(sum(c['pct_videos'] for c in resumo['categorias']),100)
         self.assertIn('CONTEÚDO',resumo['conclusao'])
-        self.assertIn('ainda não',resumir([])['conclusao'])
-        self.assertIn('não é possível concluir',resumir([videos[7]])['conclusao'])
+        self.assertIn('ainda nêo',resumir([])['conclusao'])
+        self.assertIn('nêo é possível concluir',resumir([videos[7]])['conclusao'])
 
     def test_migracao_preserva_banco_antigo(self):
         with tempfile.TemporaryDirectory() as pasta:

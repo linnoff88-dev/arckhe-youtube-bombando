@@ -58,7 +58,7 @@ class MetricasTest(unittest.TestCase):
         self.assertIn('class="real"', grande)
         self.assertIn('12/11: 400', grande)
         self.assertIn('Sem histórico', crescimento([], 30, self.agora))
-        # foto anterior à publicação (idade menor que a diferença de dias) é descartada
+        # foto anterior à publicaçêo (idade menor que a diferença de dias) é descartada
         self.assertEqual(len(pontos_crescimento(fotos, 5, self.agora)), 2)
 
     def test_idade_e_numero_curto(self):

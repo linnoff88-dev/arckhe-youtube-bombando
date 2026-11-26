@@ -10,11 +10,11 @@ STOPWORDS = set('''a o as os um uma uns umas de da do das dos e é em no na nos 
 por para com sem que se ao aos à às como mais muito sua seu seus suas eu você voce
 me meu minha este esta esse essa isso isto the a an and or of to in on for with
 is are was were how what why this that it your you my our from by at be i we
-hoje novo nova video vídeo sobre não nao já ja can do does vs
+hoje novo nova video vídeo sobre nêo nao já ja can do does vs
 ou cada usar quando qual quais quem onde tudo todo toda todos todas fazer faz fiz
-ser ter tem está esta estão foi vai vou pode podem precisa agora aqui ali pra pro
-até ate mas mesmo só so bem tão tao dia dias vez coisa coisas entre depois antes
-nunca sempre ainda então entao porque porquê lo la ele ela eles elas nós nos vc
+ser ter tem está esta estêo foi vai vou pode podem precisa agora aqui ali pra pro
+até ate mas mesmo só so bem têo tao dia dias vez coisa coisas entre depois antes
+nunca sempre ainda entêo entao porque porquê lo la ele ela eles elas nós nos vc
 get new now all not just will has have more most best top part parte ep shorts'''.split())
 from .quemfala import detectar
 from .canais import linha_base
@@ -25,7 +25,7 @@ PORTE_PEQUENO = 10_000
 PORTE_GRANDE = 500_000
 CATEGORIAS = ('Conteúdo', 'Quem fala', 'Quem posta', 'Conteúdo + quem fala', 'Misto', 'Sem dados')
 
-MIN_VIDEOS_POR_TERMO = 2  # termo de um título só não é "assunto em alta"
+MIN_VIDEOS_POR_TERMO = 2  # termo de um título só nêo é "assunto em alta"
 
 
 def numero(valor):
@@ -157,13 +157,13 @@ def resumir(videos, nicho='geral'):
     pesos = {c['categoria']: c['pct_views'] for c in categorias}
     conteudo = pesos['Conteúdo'] + pesos['Conteúdo + quem fala']
     if not videos or not total_views:
-        conclusao = f'{prefixo}, ainda não há views suficientes para uma conclusão.'
+        conclusao = f'{prefixo}, ainda nêo há views suficientes para uma conclusêo.'
     elif pesos['Sem dados'] >= 50:
-        conclusao = f'{prefixo}, {formatar(pesos["Sem dados"])}% das views estão sem linha de base; ainda não é possível concluir.'
+        conclusao = f'{prefixo}, {formatar(pesos["Sem dados"])}% das views estêo sem linha de base; ainda nêo é possível concluir.'
     elif conteudo > 50:
         conclusao = f'{prefixo}, {formatar(conteudo)}% das views vêm de vídeos com pelo menos 3× o normal do canal: o sinal de CONTEÚDO predomina.'
     elif pesos['Quem posta'] > 50:
-        conclusao = f'{prefixo}, {formatar(pesos["Quem posta"])}% das views estão em canais grandes no ritmo normal: o sinal de QUEM POSTA predomina.'
+        conclusao = f'{prefixo}, {formatar(pesos["Quem posta"])}% das views estêo em canais grandes no ritmo normal: o sinal de QUEM POSTA predomina.'
     elif pesos['Quem fala'] > 50:
         conclusao = f'{prefixo}, {formatar(pesos["Quem fala"])}% das views têm sinal de convidado e superam o normal: o sinal de QUEM FALA predomina.'
     else:

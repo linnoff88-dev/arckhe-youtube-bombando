@@ -1,4 +1,4 @@
-"""Sinais lexicais de pessoa/convidado, sem inferir participação real."""
+"""Sinais lexicais de pessoa/convidado, sem inferir participaçêo real."""
 import re
 
 PESSOAS = [

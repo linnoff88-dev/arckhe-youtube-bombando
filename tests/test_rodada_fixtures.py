@@ -32,7 +32,7 @@ class RodadaTest(unittest.TestCase):
 
     def rodar(self):
         saida = io.StringIO()
-        with patch('subprocess.run', side_effect=AssertionError('Rede proibida nos testes de integração')), redirect_stdout(saida), redirect_stderr(saida):
+        with patch('subprocess.run', side_effect=AssertionError('Rede proibida nos testes de integraçêo')), redirect_stdout(saida), redirect_stderr(saida):
             codigo = executar(self.args, self.raiz)
         return codigo, saida.getvalue()
 
@@ -52,7 +52,7 @@ class RodadaTest(unittest.TestCase):
         pagina = (self.raiz / 'painel/index.html').read_text()
         self.assertIn('Agentes de IA automatizam tarefas', pagina)
         self.assertIn('<svg', pagina)
-        self.assertIn('Vídeo privado de demonstração', pagina)
+        self.assertIn('Vídeo privado de demonstraçêo', pagina)
         self.assertNotIn('<script src=', pagina)
         # 1.2: o vídeo mais quente de cada nicho mostra a thumb; só do i.ytimg.com.
         import re
@@ -60,7 +60,7 @@ class RodadaTest(unittest.TestCase):
         self.assertTrue(all('i.ytimg.com/vi/' in t for t in re.findall(r'<img [^>]*>', estatico)))
         self.assertIn('class="numeros"', estatico)
         self.assertIn('class="cresc-g"', estatico)
-        self.assertIn('O que cada opção de ordenação quer dizer', estatico)
+        self.assertIn('O que cada opçêo de ordenaçêo quer dizer', estatico)
         dados = self.dados()
         self.assertEqual(sum(v['indisponivel'] for v in dados['videos']), 1)
         self.assertEqual(len(dados['videos'][0]['nichos']), 7)
@@ -84,7 +84,7 @@ class RodadaTest(unittest.TestCase):
         self.rodar()
         antes = self.dados()['rodada']
         self.args.so_painel = True
-        with patch.object(Fonte, 'obter', side_effect=AssertionError('não pode coletar')):
+        with patch.object(Fonte, 'obter', side_effect=AssertionError('nêo pode coletar')):
             self.assertEqual(self.rodar()[0], 0)
         self.assertEqual(self.dados()['rodada'], antes)
 
@@ -92,7 +92,7 @@ class RodadaTest(unittest.TestCase):
         self.args.nicho = 'chatgpt'
         self.assertEqual(self.rodar()[0], 0)
         self.assertEqual(self.dados()['nichos'], ['chatgpt'])
-        self.args.nicho = 'não existe'
+        self.args.nicho = 'nêo existe'
         self.assertEqual(self.rodar()[0], 1)
 
     def test_lock_nao_inicia_segunda_rodada(self):
@@ -101,7 +101,7 @@ class RodadaTest(unittest.TestCase):
             fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
             codigo, saida = self.rodar()
         self.assertEqual(codigo, 0)
-        self.assertIn('já em execução', saida)
+        self.assertIn('já em execuçêo', saida)
         self.assertFalse((self.raiz / 'dados/bombando.db').exists())
 
     def test_erro_transitorio_nao_marca_indisponivel(self):
@@ -176,7 +176,7 @@ class FonteTest(unittest.TestCase):
         with patch('subprocess.run', return_value=retorno):
             with self.assertRaises(Indisponivel):
                 Fonte(self.config).obter('detalhes', 'privado0001')
-        retorno = subprocess.CompletedProcess([], 0, 'não é json', '')
+        retorno = subprocess.CompletedProcess([], 0, 'nêo é json', '')
         with patch('subprocess.run', return_value=retorno):
             with self.assertRaises(json.JSONDecodeError):
                 Fonte(self.config).obter('detalhes', 'iaDemo00001')

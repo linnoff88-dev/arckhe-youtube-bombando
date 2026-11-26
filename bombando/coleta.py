@@ -1,4 +1,4 @@
-"""Descobre vídeos e preserva a associação com todos os nichos."""
+"""Descobre vídeos e preserva a associaçêo com todos os nichos."""
 import re
 
 

@@ -1,4 +1,4 @@
-﻿# YouTube bombando â€” radar do que bomba
+ï»¿# YouTube bombando ê¢â¬â radar do que bomba
 
 <div align="center">
   <img src="capa/logo.svg" alt="Arckhé AI" height="48" />
@@ -6,22 +6,22 @@
 </div>
 
 
-**ðŸ‡§ðŸ‡· [PortuguÃªs](README.md) Â· ðŸ‡ºðŸ‡¸ [English](README.en.md) Â· ðŸ‡ªðŸ‡¸ [EspaÃ±ol](README.es.md)**
+**ê°Å¸â¡Â§ê°Å¸â¡Â· [PortuguêÂªs](README.md) êÂ· ê°Å¸â¡Âºê°Å¸â¡Â¸ [English](README.en.md) êÂ· ê°Å¸â¡Âªê°Å¸â¡Â¸ [EspaêÂ±ol](README.es.md)**
 
 [![Radar do que bomba](guia/assets/banner.jpg)](https://inematds.github.io/youtube-bombando/guia/)
 
-## O que Ã©
+## O que êÂ©
 
-O **youtube-bombando** Ã© um pequeno sistema que roda sozinho no seu computador, toda manhÃ£. Ele procura no YouTube os vÃ­deos da semana nos assuntos que vocÃª escolher, anota as views de cada um por 7 dias e monta um painel com o que estÃ¡ crescendo mais rÃ¡pido. Para cada vÃ­deo, ele compara as views com o normal do prÃ³prio canal e diz se o sinal Ã© de **conteÃºdo**, de **quem posta** (canal grande) ou de **quem fala** (convidado). Ã‰ para quem grava vÃ­deo ou quer comeÃ§ar um canal. Precisa sÃ³ de Python e de uma ferramenta grÃ¡tis que lÃª o YouTube; nÃ£o usa chave nem API paga.
+O **youtube-bombando** êÂ© um pequeno sistema que roda sozinho no seu computador, toda manhêÂ£. Ele procura no YouTube os vêÂ­deos da semana nos assuntos que vocêÂª escolher, anota as views de cada um por 7 dias e monta um painel com o que estêÂ¡ crescendo mais rêÂ¡pido. Para cada vêÂ­deo, ele compara as views com o normal do prêÂ³prio canal e diz se o sinal êÂ© de **conteêÂºdo**, de **quem posta** (canal grande) ou de **quem fala** (convidado). êâ° para quem grava vêÂ­deo ou quer comeêÂ§ar um canal. Precisa sêÂ³ de Python e de uma ferramenta grêÂ¡tis que lêÂª o YouTube; nêÂ£o usa chave nem API paga.
 
-## ðŸ“– Guia de uso
+## ê°Å¸ââ Guia de uso
 
 Guia completo (landing + passo a passo): **https://inematds.github.io/youtube-bombando/guia/**
 
 ## Requisitos
 
-Python 3.9+ e biblioteca padrÃ£o, sem pip, API ou chaves. A coleta real usa o executÃ¡vel `yt-dlp` disponÃ­vel no PATH; os testes nÃ£o o executam. Linux com systemd de usuÃ¡rio Ã© necessÃ¡rio apenas para a instalaÃ§Ã£o do timer. A pesquisa real requer internet; o modo fixtures e o painel funcionam offline.
-## ComeÃ§ar localmente
+Python 3.9+ e biblioteca padrêÂ£o, sem pip, API ou chaves. A coleta real usa o executêÂ¡vel `yt-dlp` disponêÂ­vel no PATH; os testes nêÂ£o o executam. Linux com systemd de usuêÂ¡rio êÂ© necessêÂ¡rio apenas para a instalaêÂ§êÂ£o do timer. A pesquisa real requer internet; o modo fixtures e o painel funcionam offline.
+## ComeêÂ§ar localmente
 
 ```bash
 python3 -m unittest discover -s tests -v
@@ -30,7 +30,7 @@ python3 bombando/rodada.py --fixtures tests/fixtures
 python3 bombando/rodada.py --so-painel
 ```
 
-As fixtures sÃ£o exemplos fixos, identificados no painel; a idade cresce conforme o tempo passa. Elas gravam em `dados/teste/`, com banco e painel separados da produÃ§Ã£o. Repetir a rodada no mesmo dia preserva a foto Ãºnica diÃ¡ria e o cache dos canais. Testes unitÃ¡rios usam diretÃ³rios temporÃ¡rios isolados.
+As fixtures sêÂ£o exemplos fixos, identificados no painel; a idade cresce conforme o tempo passa. Elas gravam em `dados/teste/`, com banco e painel separados da produêÂ§êÂ£o. Repetir a rodada no mesmo dia preserva a foto êÂºnica diêÂ¡ria e o cache dos canais. Testes unitêÂ¡rios usam diretêÂ³rios temporêÂ¡rios isolados.
 
 Coleta real (execute quando quiser consultar o YouTube):
 
@@ -39,7 +39,7 @@ python3 bombando/rodada.py
 python3 bombando/rodada.py --nicho 'claude code'
 ```
 
-## InstalaÃ§Ã£o diÃ¡ria
+## InstalaêÂ§êÂ£o diêÂ¡ria
 
 ```bash
 bash deploy/instalar.sh
@@ -47,145 +47,145 @@ systemctl --user list-timers youtube-bombando.timer
 journalctl --user -u youtube-bombando.service
 ```
 
-O instalador substitui `@REPO@` nas units, copia para `~/.config/systemd/user/`, recarrega o systemd, ativa o timer e inicia/reinicia o servidor de painel. Pode ser repetido. A coleta ocorre Ã s **07:15 no fuso da mÃ¡quina**, com `Persistent=true` (recupera execuÃ§Ã£o perdida), teto de 45 minutos, memÃ³ria de 1 GB e Nice 10. O timer depende do gerenciador de usuÃ¡rio estar ativo; execuÃ§Ã£o apÃ³s logout requer linger configurado pelo administrador.
+O instalador substitui `@REPO@` nas units, copia para `~/.config/systemd/user/`, recarrega o systemd, ativa o timer e inicia/reinicia o servidor de painel. Pode ser repetido. A coleta ocorre êÂ s **07:15 no fuso da mêÂ¡quina**, com `Persistent=true` (recupera execuêÂ§êÂ£o perdida), teto de 45 minutos, memêÂ³ria de 1 GB e Nice 10. O timer depende do gerenciador de usuêÂ¡rio estar ativo; execuêÂ§êÂ£o apêÂ³s logout requer linger configurado pelo administrador.
 
-Painel em `http://localhost:8795`; o servidor escuta `0.0.0.0` conforme a especificaÃ§Ã£o e tambÃ©m fica acessÃ­vel na rede local. Para parar:
+Painel em `http://localhost:8795`; o servidor escuta `0.0.0.0` conforme a especificaêÂ§êÂ£o e tambêÂ©m fica acessêÂ­vel na rede local. Para parar:
 
 ```bash
 systemctl --user disable --now youtube-bombando.timer youtube-bombando-painel.service
 ```
 
-A instalaÃ§Ã£o e a coleta real nÃ£o fazem parte dos testes offline.
+A instalaêÂ§êÂ£o e a coleta real nêÂ£o fazem parte dos testes offline.
 
-## ConfiguraÃ§Ã£o
+## ConfiguraêÂ§êÂ£o
 
-Edite `config.json`. Cada item de `nichos` contÃ©m `nome`, `busca` e `ativo` (booleano). Um vÃ­deo pode pertencer a vÃ¡rios nichos sem duplicar suas fotos. Desativar um nicho impede novas buscas, mas preserva seu histÃ³rico; vÃ­deos jÃ¡ descobertos continuam sendo acompanhados atÃ© o fim da janela.
+Edite `config.json`. Cada item de `nichos` contêÂ©m `nome`, `busca` e `ativo` (booleano). Um vêÂ­deo pode pertencer a vêÂ¡rios nichos sem duplicar suas fotos. Desativar um nicho impede novas buscas, mas preserva seu histêÂ³rico; vêÂ­deos jêÂ¡ descobertos continuam sendo acompanhados atêÂ© o fim da janela.
 
-| Campo | PadrÃ£o | FunÃ§Ã£o |
+| Campo | PadrêÂ£o | FunêÂ§êÂ£o |
 |---|---:|---|
-| `por_nicho_busca` | 40 | MÃ¡ximo de resultados por busca semanal |
+| `por_nicho_busca` | 40 | MêÂ¡ximo de resultados por busca semanal |
 | `dias_acompanhar` | 7 | Janela desde a primeira descoberta |
 | `max_detalhes_por_rodada` | 250 | Teto de consultas de detalhes |
 | `max_canais_por_rodada` | 120 (este repo usa 200) | Teto de tentativas de consulta de canais por rodada |
-| `pausa_s` | 1.5 | Intervalo mÃ­nimo entre fim e inÃ­cio das chamadas |
-| `idioma` | pt | Reservado; nÃ£o Ã© passado ao yt-dlp (com `lang=pt` ele lÃª "3,4 mil" como 34) |
-| `regiao` | BR | PaÃ­s informado ao mecanismo geo-bypass do yt-dlp |
+| `pausa_s` | 1.5 | Intervalo mêÂ­nimo entre fim e inêÂ­cio das chamadas |
+| `idioma` | pt | Reservado; nêÂ£o êÂ© passado ao yt-dlp (com `lang=pt` ele lêÂª "3,4 mil" como 34) |
+| `regiao` | BR | PaêÂ­s informado ao mecanismo geo-bypass do yt-dlp |
 
-A regiÃ£o nÃ£o garante resultados geolocalizados; o YouTube tambÃ©m considera a conexÃ£o. O filtro semanal Ã© o parÃ¢metro de pesquisa solicitado ao YouTube. O sistema preserva os resultados devolvidos pelo extrator.
+A regiêÂ£o nêÂ£o garante resultados geolocalizados; o YouTube tambêÂ©m considera a conexêÂ£o. O filtro semanal êÂ© o parêÂ¢metro de pesquisa solicitado ao YouTube. O sistema preserva os resultados devolvidos pelo extrator.
 
-Cada subprocesso tem timeout de 120 segundos, socket de 20 segundos e retries limitados. Erros sÃ£o registrados por nicho/vÃ­deo e a rodada continua. VÃ­deos explicitamente privados/removidos ficam indisponÃ­veis; timeout e 429 nÃ£o provocam essa marcaÃ§Ã£o. Fotos jÃ¡ coletadas hoje sÃ£o puladas. O teto prioriza a velocidade da Ãºltima foto; como ela sÃ³ guarda o dia, usa meio-dia UTC como referÃªncia dessa prioridade, com desempate por descoberta e ID. VÃ­deos ainda sem fotos tÃªm prioridade de velocidade zero.
+Cada subprocesso tem timeout de 120 segundos, socket de 20 segundos e retries limitados. Erros sêÂ£o registrados por nicho/vêÂ­deo e a rodada continua. VêÂ­deos explicitamente privados/removidos ficam indisponêÂ­veis; timeout e 429 nêÂ£o provocam essa marcaêÂ§êÂ£o. Fotos jêÂ¡ coletadas hoje sêÂ£o puladas. O teto prioriza a velocidade da êÂºltima foto; como ela sêÂ³ guarda o dia, usa meio-dia UTC como referêÂªncia dessa prioridade, com desempate por descoberta e ID. VêÂ­deos ainda sem fotos têÂªm prioridade de velocidade zero.
 
-## MÃ©tricas e nota
+## MêÂ©tricas e nota
 
-Datas sÃ£o armazenadas em UTC. `timestamp` tem preferÃªncia sobre `upload_date`; este Ãºltimo representa meia-noite UTC, uma aproximaÃ§Ã£o quando a hora nÃ£o Ã© fornecida.
+Datas sêÂ£o armazenadas em UTC. `timestamp` tem preferêÂªncia sobre `upload_date`; este êÂºltimo representa meia-noite UTC, uma aproximaêÂ§êÂ£o quando a hora nêÂ£o êÂ© fornecida.
 
-- **Idade (h):** horas desde a publicaÃ§Ã£o atÃ© a geraÃ§Ã£o do painel, limitada a zero para datas futuras.
-- **Velocidade:** views da foto mais recente / `max(idade_h, 1)`; Ã© a mÃ©dia desde a publicaÃ§Ã£o, nÃ£o a velocidade instantÃ¢nea.
-- **Ganho 24h:** `(views de hoje âˆ’ views da foto anterior) / dias entre fotos`. Sem foto de hoje ou sem anterior, fica ausente. Quedas de contagem sÃ£o preservadas.
-- **Multiplicador:** views / inscritos. Inscritos ausentes ou zero deixam a mÃ©trica ausente.
-- **Nota:** `z-score(velocidade dentro do nicho) + ln(1 + multiplicador)`. O z-score usa desvio padrÃ£o populacional; com desvio zero ou velocidade ausente, vale zero. Multiplicador ausente contribui zero. A nota pode ser negativa. Em â€œTodosâ€, usa a maior nota entre os nichos do vÃ­deo; ao selecionar um nicho, usa a nota daquele nicho. IndisponÃ­veis ficam no fim e nÃ£o entram nas estatÃ­sticas nem nos destaques.
+- **Idade (h):** horas desde a publicaêÂ§êÂ£o atêÂ© a geraêÂ§êÂ£o do painel, limitada a zero para datas futuras.
+- **Velocidade:** views da foto mais recente / `max(idade_h, 1)`; êÂ© a mêÂ©dia desde a publicaêÂ§êÂ£o, nêÂ£o a velocidade instantêÂ¢nea.
+- **Ganho 24h:** `(views de hoje ê¢Ëâ views da foto anterior) / dias entre fotos`. Sem foto de hoje ou sem anterior, fica ausente. Quedas de contagem sêÂ£o preservadas.
+- **Multiplicador:** views / inscritos. Inscritos ausentes ou zero deixam a mêÂ©trica ausente.
+- **Nota:** `z-score(velocidade dentro do nicho) + ln(1 + multiplicador)`. O z-score usa desvio padrêÂ£o populacional; com desvio zero ou velocidade ausente, vale zero. Multiplicador ausente contribui zero. A nota pode ser negativa. Em ê¢â¬ÅTodosê¢â¬Â, usa a maior nota entre os nichos do vêÂ­deo; ao selecionar um nicho, usa a nota daquele nicho. IndisponêÂ­veis ficam no fim e nêÂ£o entram nas estatêÂ­sticas nem nos destaques.
 
-Zero e ausÃªncia sÃ£o distintos: `â€”` indica dado desconhecido. Views da busca ficam no banco como estimativa inicial, separadas das fotos. A tabela exibe as fotos confirmadas. O **grÃ¡fico de crescimento** (coluna â€œCrescimentoâ€, clique para ampliar, e no vÃ­deo mais quente de cada nicho) pÃµe as views no eixo vertical e as horas desde a publicaÃ§Ã£o no horizontal. ComeÃ§a em 0 views na publicaÃ§Ã£o; o trecho tracejado vai atÃ© a 1Âª mediÃ§Ã£o (sÃ³ a mÃ©dia, nÃ£o hÃ¡ pontos no meio) e a linha cheia liga as mediÃ§Ãµes diÃ¡rias das 07:15, cada uma na idade que o vÃ­deo tinha naquele dia.
+Zero e ausêÂªncia sêÂ£o distintos: `ê¢â¬â` indica dado desconhecido. Views da busca ficam no banco como estimativa inicial, separadas das fotos. A tabela exibe as fotos confirmadas. O **grêÂ¡fico de crescimento** (coluna ê¢â¬ÅCrescimentoê¢â¬Â, clique para ampliar, e no vêÂ­deo mais quente de cada nicho) pêÂµe as views no eixo vertical e as horas desde a publicaêÂ§êÂ£o no horizontal. ComeêÂ§a em 0 views na publicaêÂ§êÂ£o; o trecho tracejado vai atêÂ© a 1êÂª mediêÂ§êÂ£o (sêÂ³ a mêÂ©dia, nêÂ£o hêÂ¡ pontos no meio) e a linha cheia liga as mediêÂ§êÂµes diêÂ¡rias das 07:15, cada uma na idade que o vêÂ­deo tinha naquele dia.
 
-**Ordenar por** (o painel explica a opÃ§Ã£o escolhida embaixo do seletor):
+**Ordenar por** (o painel explica a opêÂ§êÂ£o escolhida embaixo do seletor):
 
-| OpÃ§Ã£o | O que mede |
+| OpêÂ§êÂ£o | O que mede |
 |---|---|
 | Nota | z-score das views/h dentro do nicho + ln(1 + multiplicador): o mais quente agora |
-| Velocidade | views Ã· idade em horas; favorece vÃ­deos novos |
-| Ganho em 24h | views ganhas desde a mediÃ§Ã£o anterior (precisa de 2 dias de coleta) |
-| Multiplicador | views Ã· inscritos; acima de 1Ã— passou o tamanho do canal |
-| Ã— canal | views Ã· mediana dos Ãºltimos vÃ­deos do canal; â‰¥ 3Ã— furou a bolha |
+| Velocidade | views êÂ· idade em horas; favorece vêÂ­deos novos |
+| Ganho em 24h | views ganhas desde a mediêÂ§êÂ£o anterior (precisa de 2 dias de coleta) |
+| Multiplicador | views êÂ· inscritos; acima de 1êâ passou o tamanho do canal |
+| êâ canal | views êÂ· mediana dos êÂºltimos vêÂ­deos do canal; ê¢â°Â¥ 3êâ furou a bolha |
 | Views | total de views, sem olhar idade nem canal |
 | Mais novos | menor idade primeiro |
 
-**Idade** = tempo desde que o vÃ­deo foi publicado no YouTube (nÃ£o desde que o sistema o achou); aparece em horas atÃ© 48 h e depois em dias + horas.
+**Idade** = tempo desde que o vêÂ­deo foi publicado no YouTube (nêÂ£o desde que o sistema o achou); aparece em horas atêÂ© 48 h e depois em dias + horas.
 
-**Assuntos em alta:** top 30 vÃ­deos por nota em cada nicho (e top 30 geral sem duplicar IDs). Com pelo menos 5 vÃ­deos, um termo precisa aparecer em dois tÃ­tulos; em grupos menores, basta um. Extrai palavras e bigramas adjacentes, remove stopwords PT/EN, palavras de uma letra e nÃºmeros isolados. Cada termo recebe uma contribuiÃ§Ã£o por tÃ­tulo, igual Ã  velocidade do vÃ­deo. Exibe os 15 maiores pesos. Ã‰ uma heurÃ­stica lexical, sem IA ou interpretaÃ§Ã£o semÃ¢ntica.
+**Assuntos em alta:** top 30 vêÂ­deos por nota em cada nicho (e top 30 geral sem duplicar IDs). Com pelo menos 5 vêÂ­deos, um termo precisa aparecer em dois têÂ­tulos; em grupos menores, basta um. Extrai palavras e bigramas adjacentes, remove stopwords PT/EN, palavras de uma letra e nêÂºmeros isolados. Cada termo recebe uma contribuiêÂ§êÂ£o por têÂ­tulo, igual êÂ  velocidade do vêÂ­deo. Exibe os 15 maiores pesos. êâ° uma heurêÂ­stica lexical, sem IA ou interpretaêÂ§êÂ£o semêÂ¢ntica.
 
-## Por que bombou? â€” mÃ©todo e limites
+## Por que bombou? ê¢â¬â mêÂ©todo e limites
 
-O sinal principal Ã© **fator_canal = views / mediana de views do prÃ³prio canal**.
-Consulta os Ãºltimos 20 vÃ­deos do canal uma vez e guarda a amostra em SQLite.
-A mediana exclui o prÃ³prio vÃ­deo analisado e publicaÃ§Ãµes com menos de 3 dias.
-Quando a data de uma entrada nÃ£o estÃ¡ disponÃ­vel, exclui essa entrada se estiver
-entre as duas primeiras da lista. Views desconhecidas nÃ£o entram; zero Ã© vÃ¡lido.
-Cada vÃ­deo tem sua mediana e `n_amostra` recalculados a partir do cache, inclusive
-quando hÃ¡ vÃ¡rios vÃ­deos do mesmo canal. Na tabela `canais`, mediana e tamanho
-representam o vÃ­deo prioritÃ¡rio na coleta; `amostra` preserva os dados para os demais.
+O sinal principal êÂ© **fator_canal = views / mediana de views do prêÂ³prio canal**.
+Consulta os êÂºltimos 20 vêÂ­deos do canal uma vez e guarda a amostra em SQLite.
+A mediana exclui o prêÂ³prio vêÂ­deo analisado e publicaêÂ§êÂµes com menos de 3 dias.
+Quando a data de uma entrada nêÂ£o estêÂ¡ disponêÂ­vel, exclui essa entrada se estiver
+entre as duas primeiras da lista. Views desconhecidas nêÂ£o entram; zero êÂ© vêÂ¡lido.
+Cada vêÂ­deo tem sua mediana e `n_amostra` recalculados a partir do cache, inclusive
+quando hêÂ¡ vêÂ¡rios vêÂ­deos do mesmo canal. Na tabela `canais`, mediana e tamanho
+representam o vêÂ­deo prioritêÂ¡rio na coleta; `amostra` preserva os dados para os demais.
 
-O cache vale atÃ© 7 dias inclusive; sÃ³ Ã© renovado apÃ³s esse prazo. Os canais dos
-vÃ­deos acompanhados (disponÃ­veis, dentro de `dias_acompanhar`) de maior nota tÃªm
+O cache vale atêÂ© 7 dias inclusive; sêÂ³ êÂ© renovado apêÂ³s esse prazo. Os canais dos
+vêÂ­deos acompanhados (disponêÂ­veis, dentro de `dias_acompanhar`) de maior nota têÂªm
 prioridade. O teto conta tentativas, inclusive falhas. Erros preservam o cache
 anterior e ficam no log. A data do cache aparece em `canal_atualizado` nos dados.
-NÃ£o hÃ¡ chamada extra para descriÃ§Ã£o: ela Ã© guardada quando chega no detalhe.
+NêÂ£o hêÂ¡ chamada extra para descriêÂ§êÂ£o: ela êÂ© guardada quando chega no detalhe.
 
-`pessoas` em `config.json` Ã© a lista editÃ¡vel de nomes conhecidos. O detector
-procura nomes completos sem diferenciar maiÃºsculas e minÃºsculas, no tÃ­tulo e na
-descriÃ§Ã£o disponÃ­vel, alÃ©m de sinais de formato: `com Nome Sobrenome`, `ft.`,
+`pessoas` em `config.json` êÂ© a lista editêÂ¡vel de nomes conhecidos. O detector
+procura nomes completos sem diferenciar maiêÂºsculas e minêÂºsculas, no têÂ­tulo e na
+descriêÂ§êÂ£o disponêÂ­vel, alêÂ©m de sinais de formato: `com Nome Sobrenome`, `ft.`,
 `feat.`, entrevista, podcast, palestra, `| Nome Sobrenome`, `- NOME SOBRENOME`
-e `#123`. O trecho encontrado acompanha o motivo. Uma menÃ§Ã£o nÃ£o comprova
-participaÃ§Ã£o; o mÃ©todo Ã© uma heurÃ­stica, nÃ£o uma demonstraÃ§Ã£o de causalidade.
+e `#123`. O trecho encontrado acompanha o motivo. Uma menêÂ§êÂ£o nêÂ£o comprova
+participaêÂ§êÂ£o; o mêÂ©todo êÂ© uma heurêÂ­stica, nêÂ£o uma demonstraêÂ§êÂ£o de causalidade.
 
 Porte por inscritos da foto mais recente (ou do canal, se ausentes): pequeno
-abaixo de 10 mil; mÃ©dio de 10 mil a 500 mil inclusive; grande acima de 500 mil.
-Sem inscritos, o porte Ã© desconhecido. Regras, nesta ordem:
+abaixo de 10 mil; mêÂ©dio de 10 mil a 500 mil inclusive; grande acima de 500 mil.
+Sem inscritos, o porte êÂ© desconhecido. Regras, nesta ordem:
 
-| CondiÃ§Ã£o | Categoria |
+| CondiêÂ§êÂ£o | Categoria |
 |---|---|
 | Sem views confirmadas ou mediana ausente/zero | Sem dados |
-| Fator â‰¥ 3 e pessoa/formato de convidado | ConteÃºdo + quem fala |
-| Fator â‰¥ 3 sem pessoa/formato de convidado | ConteÃºdo |
-| Fator â‰¥ 1,5 e pessoa/formato de convidado | Quem fala |
+| Fator ê¢â°Â¥ 3 e pessoa/formato de convidado | ConteêÂºdo + quem fala |
+| Fator ê¢â°Â¥ 3 sem pessoa/formato de convidado | ConteêÂºdo |
+| Fator ê¢â°Â¥ 1,5 e pessoa/formato de convidado | Quem fala |
 | Fator < 1,5 e canal grande | Quem posta |
 | Demais casos | Misto |
 
-A regra combinada vem primeiro para nÃ£o ser absorvida por â€œQuem falaâ€. Os limiares
-sÃ£o constantes no topo de `metricas.py`. AusÃªncia nunca Ã© estimada por inscritos.
-Os motivos mostram fator, mediana, porte e evidÃªncia de convidado.
+A regra combinada vem primeiro para nêÂ£o ser absorvida por ê¢â¬ÅQuem falaê¢â¬Â. Os limiares
+sêÂ£o constantes no topo de `metricas.py`. AusêÂªncia nunca êÂ© estimada por inscritos.
+Os motivos mostram fator, mediana, porte e evidêÂªncia de convidado.
 
-O resumo geral e por nicho considera vÃ­deos disponÃ­veis com views confirmadas,
-sem duplicaÃ§Ã£o dentro de cada grupo. A legenda mostra contagens e percentuais de
-vÃ­deos e views nas **seis categorias**, incluindo a combinada separadamente para
-nÃ£o contar suas views duas vezes. Sem views totais, percentuais sÃ£o zero. A
-conclusÃ£o prioriza insuficiÃªncia de dados (â‰¥ 50% das views sem base); depois,
-maioria estrita (> 50%) de conteÃºdo (puro + combinado), quem posta ou quem fala;
-sem maioria, informa sinais mistos. â€œFuraram a bolhaâ€ lista atÃ© 5 vÃ­deos com
-fator â‰¥ 3 de canais pequenos/mÃ©dios, ordenados pelo fator.
+O resumo geral e por nicho considera vêÂ­deos disponêÂ­veis com views confirmadas,
+sem duplicaêÂ§êÂ£o dentro de cada grupo. A legenda mostra contagens e percentuais de
+vêÂ­deos e views nas **seis categorias**, incluindo a combinada separadamente para
+nêÂ£o contar suas views duas vezes. Sem views totais, percentuais sêÂ£o zero. A
+conclusêÂ£o prioriza insuficiêÂªncia de dados (ê¢â°Â¥ 50% das views sem base); depois,
+maioria estrita (> 50%) de conteêÂºdo (puro + combinado), quem posta ou quem fala;
+sem maioria, informa sinais mistos. ê¢â¬ÅFuraram a bolhaê¢â¬Â lista atêÂ© 5 vêÂ­deos com
+fator ê¢â°Â¥ 3 de canais pequenos/mêÂ©dios, ordenados pelo fator.
 
-Para preencher apenas as linhas de base jÃ¡ existentes, mantendo descoberta e
+Para preencher apenas as linhas de base jêÂ¡ existentes, mantendo descoberta e
 fotos intactas (consulta real de canais):
 
 ```bash
 python3 bombando/rodada.py --so-canais
 python3 bombando/rodada.py --so-canais --nicho 'claude code'
-# Variante inteiramente offline, usando o banco de demonstraÃ§Ã£o:
+# Variante inteiramente offline, usando o banco de demonstraêÂ§êÂ£o:
 python3 bombando/rodada.py --so-canais --fixtures tests/fixtures
 ```
 
-`--so-canais` e `--so-painel` sÃ£o mutuamente exclusivos. No modo canais, nenhuma
-consulta necessÃ¡ria (cache vÃ¡lido ou seleÃ§Ã£o vazia) Ã© sucesso; falha em todas as
+`--so-canais` e `--so-painel` sêÂ£o mutuamente exclusivos. No modo canais, nenhuma
+consulta necessêÂ¡ria (cache vêÂ¡lido ou seleêÂ§êÂ£o vazia) êÂ© sucesso; falha em todas as
 consultas tentadas retorna 1, e sucesso parcial retorna 0. O painel mostra erros.
 
-## Arquivos e operaÃ§Ã£o
+## Arquivos e operaêÂ§êÂ£o
 
-`dados/bombando.db` contÃ©m vÃ­deos, nichos, ligaÃ§Ãµes, fotos Ãºnicas por `(id, dia)`, rodadas e canais com suas amostras. A abertura do banco migra o esquema antigo sem apagar dados. `dados/.lock` usa `flock` nÃ£o bloqueante para evitar concorrÃªncia. `dados/logs/AAAA-MM-DD.log` guarda falhas e resumo. `painel/index.html` contÃ©m CSS, JS, dados e SVG inline; `painel/dados.json` tem os mesmos dados e `painel/historico/AAAA-MM-DD.html` Ã© a Ãºltima cÃ³pia daquele dia. Miniaturas sÃ³ carregam apÃ³s clicar em â€œCarregar miniaturas (internet)â€; fontes usam fallback de sistema, sem CDN.
+`dados/bombando.db` contêÂ©m vêÂ­deos, nichos, ligaêÂ§êÂµes, fotos êÂºnicas por `(id, dia)`, rodadas e canais com suas amostras. A abertura do banco migra o esquema antigo sem apagar dados. `dados/.lock` usa `flock` nêÂ£o bloqueante para evitar concorrêÂªncia. `dados/logs/AAAA-MM-DD.log` guarda falhas e resumo. `painel/index.html` contêÂ©m CSS, JS, dados e SVG inline; `painel/dados.json` tem os mesmos dados e `painel/historico/AAAA-MM-DD.html` êÂ© a êÂºltima cêÂ³pia daquele dia. Miniaturas sêÂ³ carregam apêÂ³s clicar em ê¢â¬ÅCarregar miniaturas (internet)ê¢â¬Â; fontes usam fallback de sistema, sem CDN.
 
-`--so-painel` mantÃ©m o status e horÃ¡rio da Ãºltima coleta e regenera as mÃ©tricas. `--nicho NOME` restringe busca, acompanhamento e canais, preservando os outros dados no painel. O cÃ³digo de saÃ­da Ã© zero quando algum nicho teve busca vÃ¡lida, mesmo com erros parciais; nenhum nicho bem-sucedido retorna 1. Falhas estruturais (configuraÃ§Ã£o, banco ou escrita) tambÃ©m retornam 1. Lock ocupado Ã© execuÃ§Ã£o ignorada com cÃ³digo zero.
+`--so-painel` mantêÂ©m o status e horêÂ¡rio da êÂºltima coleta e regenera as mêÂ©tricas. `--nicho NOME` restringe busca, acompanhamento e canais, preservando os outros dados no painel. O cêÂ³digo de saêÂ­da êÂ© zero quando algum nicho teve busca vêÂ¡lida, mesmo com erros parciais; nenhum nicho bem-sucedido retorna 1. Falhas estruturais (configuraêÂ§êÂ£o, banco ou escrita) tambêÂ©m retornam 1. Lock ocupado êÂ© execuêÂ§êÂ£o ignorada com cêÂ³digo zero.
 
-As fixtures ficam em `tests/fixtures/buscas.json` (mapa por termo de busca, com `entries`), `detalhes.json` (mapa por ID) e `canais.json` (mapa por channel_id com entries). `{"erro":"mensagem"}` simula falha; `"indisponivel":true` simula remoÃ§Ã£o. NÃ£o hÃ¡ fallback de fixtures para rede.
+As fixtures ficam em `tests/fixtures/buscas.json` (mapa por termo de busca, com `entries`), `detalhes.json` (mapa por ID) e `canais.json` (mapa por channel_id com entries). `{"erro":"mensagem"}` simula falha; `"indisponivel":true` simula remoêÂ§êÂ£o. NêÂ£o hêÂ¡ fallback de fixtures para rede.
 
-## O processo, do inÃ­cio ao fim
+## O processo, do inêÂ­cio ao fim
 
-1. **ðŸ§  sessÃ£o com o Nei â€” escolher os nichos.** Comando: `python3 -m json.tool config.json`. Conferir nomes, buscas, limites e campos `ativo` depois de editar o arquivo.
-2. **âš™ï¸ script/timer â€” verificar sem rede.** Comando: `python3 -m unittest discover -s tests -v`. Testa mÃ©tricas, persistÃªncia, falhas e painel em diretÃ³rios temporÃ¡rios.
-3. **âš™ï¸ script/timer â€” demonstrar a rodada.** Comando: `python3 bombando/rodada.py --fixtures tests/fixtures`. Descobre exemplos, grava fotos, consulta fixtures dos canais, calcula mÃ©tricas e gera HTML em `dados/teste/painel/`.
-4. **ðŸ§  sessÃ£o com o Nei â€” revisar o resultado.** Comando: `xdg-open dados/teste/painel/index.html`. Comparar nichos, notas, histÃ³rico, assuntos e â€œPor que bombou?â€.
-5. **âš™ï¸ script/timer â€” consultar os vÃ­deos reais.** Comando: `python3 bombando/rodada.py`. Executa descoberta semanal â†’ acompanhamento diÃ¡rio â†’ linha de base dos canais â†’ mÃ©tricas â†’ painel, com lock e logs.
-6. **âš™ï¸ script â€” preencher canais de vÃ­deos acompanhados.** Comando: `python3 bombando/rodada.py --so-canais`. Respeita cache, teto, janela e filtro sem descoberta ou fotos. Para testar offline, acrescentar `--fixtures tests/fixtures`.
-7. **ðŸ§  sessÃ£o com o Nei â€” ativar a rotina quando desejar.** Comando: `bash deploy/instalar.sh`. Instala o agendamento e o servidor.
-8. **âš™ï¸ script/timer â€” repetir diariamente.** Comando executado pela unit: `python3 bombando/rodada.py`. Ã€s 07:15, atualiza as fotos dentro da janela e a cÃ³pia diÃ¡ria.
-9. **ðŸ§  sessÃ£o com o Nei â€” ajustar e investigar.** Comandos: `journalctl --user -u youtube-bombando.service` e `python3 bombando/rodada.py --so-painel`. Revisar erros, mudar nichos e regenerar a visualizaÃ§Ã£o sem nova coleta.
+1. **ê°Å¸Â§Â  sessêÂ£o com o Nei ê¢â¬â escolher os nichos.** Comando: `python3 -m json.tool config.json`. Conferir nomes, buscas, limites e campos `ativo` depois de editar o arquivo.
+2. **ê¢Å¡â¢ê¯Â¸Â script/timer ê¢â¬â verificar sem rede.** Comando: `python3 -m unittest discover -s tests -v`. Testa mêÂ©tricas, persistêÂªncia, falhas e painel em diretêÂ³rios temporêÂ¡rios.
+3. **ê¢Å¡â¢ê¯Â¸Â script/timer ê¢â¬â demonstrar a rodada.** Comando: `python3 bombando/rodada.py --fixtures tests/fixtures`. Descobre exemplos, grava fotos, consulta fixtures dos canais, calcula mêÂ©tricas e gera HTML em `dados/teste/painel/`.
+4. **ê°Å¸Â§Â  sessêÂ£o com o Nei ê¢â¬â revisar o resultado.** Comando: `xdg-open dados/teste/painel/index.html`. Comparar nichos, notas, histêÂ³rico, assuntos e ê¢â¬ÅPor que bombou?ê¢â¬Â.
+5. **ê¢Å¡â¢ê¯Â¸Â script/timer ê¢â¬â consultar os vêÂ­deos reais.** Comando: `python3 bombando/rodada.py`. Executa descoberta semanal ê¢â â acompanhamento diêÂ¡rio ê¢â â linha de base dos canais ê¢â â mêÂ©tricas ê¢â â painel, com lock e logs.
+6. **ê¢Å¡â¢ê¯Â¸Â script ê¢â¬â preencher canais de vêÂ­deos acompanhados.** Comando: `python3 bombando/rodada.py --so-canais`. Respeita cache, teto, janela e filtro sem descoberta ou fotos. Para testar offline, acrescentar `--fixtures tests/fixtures`.
+7. **ê°Å¸Â§Â  sessêÂ£o com o Nei ê¢â¬â ativar a rotina quando desejar.** Comando: `bash deploy/instalar.sh`. Instala o agendamento e o servidor.
+8. **ê¢Å¡â¢ê¯Â¸Â script/timer ê¢â¬â repetir diariamente.** Comando executado pela unit: `python3 bombando/rodada.py`. êâ¬s 07:15, atualiza as fotos dentro da janela e a cêÂ³pia diêÂ¡ria.
+9. **ê°Å¸Â§Â  sessêÂ£o com o Nei ê¢â¬â ajustar e investigar.** Comandos: `journalctl --user -u youtube-bombando.service` e `python3 bombando/rodada.py --so-painel`. Revisar erros, mudar nichos e regenerar a visualizaêÂ§êÂ£o sem nova coleta.
 
 ---
 
